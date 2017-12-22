@@ -141,10 +141,10 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
         cd("resources")
         r=sr.Recognizer()
         with sr.Microphone() as source:
-            system("mplayer beep.mp3")
+            os.system("mplayer beep.mp3")
             audio=r.listen(source)
         try:
-            system("mplayer 2beep.mp3")
+            os.system("mplayer 2beep.mp3")
             voicequery=r.recognize_google(audio)
         except sr.UnknownValueError:
             voiceOutput(["Sorry, I didn't quite get that."])
