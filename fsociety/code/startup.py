@@ -16,16 +16,13 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
     import speech_recognition as sr
     import datetime
     import yweather
-    from pygame import mixer
     import os
     from output_voice import voiceOutput
     from changeDir import changeDirectory as cd
     
     now=datetime.datetime.now()
     year=now.year
-    mixer.init()
     cd("resources")
-    print(os.getcwd())
 
     def confirmName(doIntro):
         try:
@@ -60,7 +57,6 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
         except FileNotFoundError:
             voiceOutput(["What is your gender? If you prefer not to state it, say so!"])
             prefgender=voiceInput()
-            print(prefgender)
             if prefgender.lower()[0:2]=="ma" or prefgender.lower()=="man" or prefgender.lower()=="boy" or prefgender.lower()=="men":
                 prefgender="male"
             elif prefgender.lower()=="female" or prefgender.lower()=="woman" or prefgender.lower()=="women" or prefgender.lower()=="girl":
@@ -90,14 +86,11 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
         except FileNotFoundError:
             voiceOutput(["What is your birthday, in the format of day, month and year? (for example first of January, nineteen ninety five","If you prefer not to state it, say so!"])
             dob=voiceInput()
-            print(dob)
             for word in dob.split():
                 if dict1.get(word.lower())!=None:
-                    print("Got day")
                     day=int(dict1[word.lower()])
                 elif dict2.get(word.lower())!=None:
                     month=int(dict2[word.lower()])
-                    print("Got month")
                 elif word.isdigit()==True:
                     if int(word)>1900 and int(word)<year:
                         year=int(word)
@@ -147,15 +140,11 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
     def voiceInput():
         cd("resources")
         r=sr.Recognizer()
-        mixer.init()
         with sr.Microphone() as source:
-            mixer.music.load("beep.mp3")
-            mixer.music.play()
+            system("mplayer beep.mp3")
             audio=r.listen(source)
-
         try:
-            mixer.music.load("2beep.mp3")
-            mixer.music.play()
+            system("mplayer 2beep.mp3")
             voicequery=r.recognize_google(audio)
         except sr.UnknownValueError:
             voiceOutput(["Sorry, I didn't quite get that."])
