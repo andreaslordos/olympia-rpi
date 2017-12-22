@@ -10,7 +10,6 @@ cd("code")
 import speech_recognition as sr
 import vlc
 import datetime
-from pygame import mixer
 from random import randint
 from time import sleep
 from determiner import determine
@@ -19,7 +18,6 @@ from gtts import gTTS as tts
 import threading
 from subprocess import call
 from output_voice import voiceOutput
-from tinytag import TinyTag as tt
 
 now=datetime.datetime.now()
 year=now.year
@@ -27,26 +25,16 @@ year=now.year
 def voiceInput():
     cd("resources")
     r=sr.Recognizer()
-    mixer.init()
-    mixer.music.load("beep.mp3")
-    mixer.music.play()
-    beepDuration=tt.get("beep.mp3")
-    sleep(beepDuration.duration)
-    mixer.music.stop()
+    os.system("mplayer beep.mp3")
     with sr.Microphone() as source:
         audio=r.listen(source)
     try:
-        mixer.init()
-        mixer.music.load("2beep.mp3")
+        os.system("mplayer 2beep.mp3")
         cd("code")
-        mixer.music.play()
         voicequery=r.recognize_google(audio)
-        mixer.music.stop()
     except sr.UnknownValueError:
-        mixer.music.stop()
         return("ERROR_ID 000")
     except sr.RequestError as e:
-        mixer.music.stop()
         voiceOutput(["Network Error"])
         return("")
     return(voicequery)
@@ -93,9 +81,6 @@ def brackets_remove(string):
             foundBracket=False
     return returnString
 
-
-mixer.init()
-
 name,dateofbirth,gender,location=setMeUp(False,False,False,False)
 
 isBirthday=checkForBirthday(dateofbirth)
@@ -121,11 +106,8 @@ while True:
     activationWord()
     if True==True:
         cd("resources")
-        mixer.init()
-        mixer.music.load("beep.mp3")
+        os.system("mplayer beep.mp3")
         cd("code")
-        mixer.music.play()
-        mixer.music.stop()
         choice=voiceInput()
         whatToRun=determine(choice)
         if whatToRun=="tellMeMore" and wikipediaFlag!=True:
