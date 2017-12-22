@@ -1,0 +1,10 @@
+git
+python3-dev
+python-dev
+libxml2-dev 
+libxslt1-dev
+portaudio19-dev
+mplayer
+flac
+libatlas-base-dev
+vlc
