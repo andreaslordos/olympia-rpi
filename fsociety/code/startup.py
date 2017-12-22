@@ -1,5 +1,4 @@
 def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
-    print(confirmedLocation)
     '''
     Input: confirmedName, boolean /// confirmedBirthday, boolean /// confirmedGender, boolean /// confirmedLocation, boolean
     Output: name, string /// gender, string /// dateofbirth, string /// location, string
