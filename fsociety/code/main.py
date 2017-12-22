@@ -105,9 +105,6 @@ def activationWord():
 while True:
     activationWord()
     if True==True:
-        cd("resources")
-        os.system("mplayer beep.mp3")
-        cd("code")
         choice=voiceInput()
         whatToRun=determine(choice)
         if whatToRun=="tellMeMore" and wikipediaFlag!=True:
