@@ -21,12 +21,12 @@ def voiceOutput(textToSay):
         fullstr=fullstr[:-1]
         whatToSay=tts(text=fullstr,lang='en')
         whatToSay.save("output.mp3")
-        audio=tt.get("output.mp3")
         if "linux" in operating_system:
             system("mplayer output.mp3")
         elif "darwin" in operating_system.lower():
             system("afplay output.mp3")
         else:
+            audio=tt.get("output.mp3")
             subprocess.run("output.mp3",shell=True)
         if "linux" not in operating_system:
             sleep(audio.duration)
