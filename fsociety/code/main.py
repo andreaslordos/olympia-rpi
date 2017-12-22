@@ -81,7 +81,7 @@ def brackets_remove(string):
             foundBracket=False
     return returnString
 
-name,dateofbirth,gender,location=setMeUp(False,False,False,False)
+name,dateofbirth,location=setMeUp(False,False,False)
 
 isBirthday=checkForBirthday(dateofbirth)
 
@@ -232,7 +232,7 @@ while True:
             elif "news" in helpChoice:
                 voiceOutput(["To get the news, simply say", "Can you get me the news?", "Alternatively, you could say ","What are the headlines today?","Furthermore, you may specify which newspaper you would like to hear from - the current ones supported are: ","CNN, Fox News, The Economist, The Huffington Post, The New York Times and the Washington Post."])
             elif "settings" in helpChoice:
-                voiceOutput(["You can change your settings here.","Currently, you can change your name, location, gender and birthday","Which of these would you like to change?"])
+                voiceOutput(["You can change your settings here.","Currently, you can change your name, location and birthday","Which of these would you like to change?"])
                 settingToChange=voiceInput()
                 settingToChange=settingToChange.lower()
                 if "cancel" in settingToChange:
@@ -243,15 +243,11 @@ while True:
                         cd("resources")
                         didntGetThat=False
                         confirmedName=True
-                        confirmedGender=True
                         confirmedBirthday=True
                         confirmedLocation=True
                         if "name" in settingToChange:
                             os.remove("name.txt")
                             confirmedName=False
-                        elif "gender" in settingToChange or "sex" in settingToChange:
-                            os.remove("gender.txt")
-                            confirmedGender=False
                         elif "birthday" in settingToChange or "birth" in settingToChange:
                             os.remove("birthday.txt")
                             confirmedBirthday=False
@@ -263,5 +259,5 @@ while True:
                             settingToChange=voiceInput()
                             didntGetThat=True
                     cd("code")
-                    name,dateofbirth,gender,location=setMeUp(confirmedName,confirmedGender,confirmedBirthday,confirmedLocation)
+                    name,dateofbirth,location=setMeUp(confirmedName,confirmedBirthday,confirmedLocation)
                     voiceOutput(["Change confirmed."])
