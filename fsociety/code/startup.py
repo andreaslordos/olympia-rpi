@@ -1,4 +1,4 @@
-def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
+def setMeUp(confirmedName,confirmedBirthday,confirmedLocation):
     '''
     Input: confirmedName, boolean /// confirmedBirthday, boolean /// confirmedGender, boolean /// confirmedLocation, boolean
     Output: name, string /// gender, string /// dateofbirth, string /// location, string
@@ -47,32 +47,6 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
                     return False
             return False
 
-
-    def confirmGender():
-        try:
-            gender=open("gender.txt",'r')
-            prefgender=gender.read()
-            return True
-        except FileNotFoundError:
-            voiceOutput(["What is your gender? If you prefer not to state it, say so!"])
-            prefgender=voiceInput()
-            if prefgender.lower()[0:2]=="ma" or prefgender.lower()=="man" or prefgender.lower()=="boy" or prefgender.lower()=="men":
-                prefgender="male"
-            elif prefgender.lower()=="female" or prefgender.lower()=="woman" or prefgender.lower()=="women" or prefgender.lower()=="girl":
-                prefgender="female"
-            elif "other" in prefgender or "else" in prefgender:
-                prefgender="other"
-            else:
-                prefgender="prefer not to state"
-            voiceOutput(["Is your gender "+prefgender+"?"])
-            isGenderRight=voiceInput()
-            if isGenderRight!="" and isGenderRight!=None:
-                if isGenderRight[0].lower()=="y" or isGenderRight[0].lower()=="c":
-                    gender=open("gender.txt","w")
-                    gender.write(prefgender)
-                    gender.close()
-                    return True
-            return False
 
     def confirmBirthday(year):
         dict1={"first":"1","second":"2","third":"3","fourth":"4","fifth":"5","sixth":"6","seventh":"7","eigth":"8","ninth":"9","tenth":"10","eleventh":"11","twelfth":"12","thirteenth":"13","fourteenth":"14","fifteenth":"15","sixteenth":"16","seventeenth":"17","eighteenth":"18","nineteenth":"19","twentieth":"20","twenty first":"21","twenty second":"22","twenty third":"23","twenty fourth":"24","twenty fifth":"25","twenty sixth":"26","twenty seventh":"27","twenty eight":"28","twenty ninth":"29","thirtieth":"30","thirty first":"31","1st":"1","2nd":"2","3rd":"3","4th":"4","5th":"5","6th":"6","7th":"7","8th":"8","9th":"9","10th":"10","11th":"11","12th":"12","13th":"13","14th":"14","15th":"15","16th":"16","17th":"17","18th":"18","19th":"19","20th":"20","21st":"21","22nd":"22","23rd":"23","24th":"24","25th":"25","26th":"26","27th":"27","28th":"28","29th":"29","30th":"30","31st":"31"}
@@ -153,18 +127,12 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
             return("")
         return(voicequery)
 
-    def setup(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
-        while confirmedName==False or confirmedGender==False or confirmedBirthday==False or confirmedLocation==False:
+    def setup(confirmedName,confirmedBirthday,confirmedLocation):
+        while confirmedName==False or confirmedBirthday==False or confirmedLocation==False:
             if confirmedName==False:
                 confirmedName=confirmName(True)
                 while confirmedName!=True:
                     confirmedName=confirmName(False)
-
-
-            if confirmedGender==False:
-                confirmedGender=confirmGender()
-                while confirmedGender!=True:
-                    confirmedGender=confirmGender()
 
             if confirmedBirthday==False:
                 confirmedBirthday=confirmBirthday(year)
@@ -177,11 +145,8 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
                     confirmedLocation=confirmLocation()
 
 
-    setup(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation)
+    setup(confirmedName,confirmedBirthday,confirmedLocation)
     print("Done with setup")
-    genderf=open("gender.txt","r")
-    gender=genderf.read()
-    genderf.close()
 
     locationf=open("location.txt","r")
     location=locationf.read()
@@ -195,4 +160,4 @@ def setMeUp(confirmedName,confirmedBirthday,confirmedGender,confirmedLocation):
     name=namef.read()
     namef.close()
 
-    return(name,gender,dateofbirth,location)
+    return(name,dateofbirth,location)
