@@ -1,7 +1,7 @@
 def setMeUp(confirmedName,confirmedLocation):
     '''
     Input: confirmedName, boolean /// confirmedLocation, boolean
-    Output: name, string /// gender, string /// dateofbirth, string /// location, string
+    Output: name, string /// location, string
 
     Explanation:
     This module goes through the process of confirming that it has the necessary information from the user and passing it
@@ -88,7 +88,7 @@ def setMeUp(confirmedName,confirmedLocation):
         return(voicequery)
 
     def setup(confirmedName,confirmedLocation):
-        while confirmedName==False or confirmedBirthday==False or confirmedLocation==False:
+        while confirmedName==False or confirmedLocation==False:
             if confirmedName==False:
                 confirmedName=confirmName(True)
                 while confirmedName!=True:
