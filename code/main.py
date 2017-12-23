@@ -154,9 +154,13 @@ while True:
         voiceOutput([Chance(choice)])
     elif whatToRun=="alarm":
         from reminder import setAlarm
-        playTime=setAlarm(choice)
-        voiceOutput(["Alarm set for "+str(playTime)])
-        runAlarm()
+        try:
+            playTime=setAlarm(choice)
+            voiceOutput(["Alarm set for "+str(playTime)])
+            cd("code")
+            runAlarm()
+        except:
+            voiceOutput(["error"])
     elif whatToRun=="bohemian":
         try:
             pm.playMusic("Bohemian Rhapsody",True)
