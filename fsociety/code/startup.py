@@ -34,17 +34,19 @@ def setMeUp(confirmedName,confirmedLocation):
                 voiceOutput(["Hello! I'm Olympia, your personal Artificial Intelligent assistant.","I can do a wide range of things for you - including playing music, giving you the weather, the news and setting calendar reminders. If you ever need any help, just tell me so by saying HELP please.","Lets get started with some basic setup."])
             voiceOutput(["What would you like me to call you?"])
             username=voiceInput()
-            voiceOutput(["Can you confirm you would like me to call you "+username+"?"])
-            isNameRight=voiceInput()
-            if isNameRight!="" and isNameRight!=None:
-                if isNameRight[0]=="Y" or isNameRight[0]=="y" or isNameRight[0]=="c":
-                    name=open("name.txt","w")
-                    name.write(username)
-                    name.close()
-                    return True
-                else:
-                    voiceOutput(["Okay, lets try that again then."])
-                    return False
+            if username!="":
+                voiceOutput(["Can you confirm you would like me to call you "+username+"?"])
+                isNameRight=voiceInput()
+                if isNameRight!="" and isNameRight!=None:
+                    if isNameRight[0]=="Y" or isNameRight[0]=="y" or isNameRight[0]=="c":
+                        name=open("name.txt","w")
+                        name.write(username)
+                        name.close()
+                        return True
+                    else:
+                        voiceOutput(["Okay, lets try that again then."])
+                        return False
+                return False
             return False
 
     def confirmLocation():
