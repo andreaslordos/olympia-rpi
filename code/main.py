@@ -60,6 +60,7 @@ def brackets_remove(string):
 
 name,location=setMeUp(False,False)
 
+cd("code")
 runAlarm()
 voiceOutput(["Hello, "+name])
 print("To activate me, say 'Olympia'")
