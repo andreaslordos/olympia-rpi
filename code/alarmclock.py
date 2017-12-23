@@ -20,7 +20,7 @@ def alarmclock():
             contents=contents.split("#")[:-1]
         except:
             pass
-        if contents==[""]:
+        if contents==[]:
             return
         soonest=None
         now=datetime.datetime.now()
