@@ -14,7 +14,7 @@ def determine(userinput):
         passed back to main.py
     '''
     def conflictResolution(conflicts):
-        conflict_dict={"alarm":3,"wolfram":2,"weather":4,"music":5,"help":1,"news":3,"bohemian":4,"alarm":3,"wiki":3,"dict":4,"xkcd":4,"math":5,"tellMeMore":2,"chance":3}
+        conflict_dict={"alarm":3,"wolfram":2,"weather":4,"music":5,"help":1,"news":3,"bohemian":4,"alarm":3,"wiki":3,"dict":4,"math":5,"tellMeMore":2,"chance":3}
         winner=conflicts[0]
         conflicts.remove(winner)
         for task in conflicts:
@@ -66,11 +66,6 @@ def determine(userinput):
                 return "dict"
             return
 
-        def aboutXKCD(userinput):
-            if "xkcd" in userinput.lower():
-                return "xkcd"
-            return
-
         def aboutMath(userinput):
             #make calculate turn this function into high priority
             mathoperators=["+","-","x","^"]
@@ -111,7 +106,7 @@ def determine(userinput):
                 if word in u:
                     return "alarm"
             return
-        modules=["Weather","Music","News","Help","Bohemian","Alarm","Wikipedia","Dictionary","XKCD","Math","TellMeMore","Questions","Dice","Alarm"]
+        modules=["Weather","Music","News","Help","Bohemian","Alarm","Wikipedia","Dictionary","Math","TellMeMore","Questions","Dice","Alarm"]
         modulesToRun=[]
         for module in modules:
             eval("modulesToRun.append(about"+module+"(userinput))")
