@@ -10,8 +10,6 @@ from os import chdir
 import sys
 from changeDir import changeDirectory as cd
 
-dirFile=open("dir.txt","r")
-directory=dirFile.read()
 cd("resources")
 def alarmclock():
     try:
