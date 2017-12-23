@@ -36,7 +36,9 @@ def voiceInput():
     return(voicequery)
 
 def thread_second():
+    cd("code")
     call(["python","alarmclock.py"])
+    cd("resources")
 
 def runAlarm():
     processThread = threading.Thread(target=thread_second)
