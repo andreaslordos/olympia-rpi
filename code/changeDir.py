@@ -10,7 +10,7 @@ def changeDirectory(folder):
     except:
         from os import getcwd
         currentDir=getcwd()
-        print("Error: dir.txt not found. Should be in code directory, but instead I am in "+currentDir)
+        print("Error: dir.txt not found.")
     try:
         if operating_system[0:3]=="win":
             chdir(directory+"\\"+folder)
