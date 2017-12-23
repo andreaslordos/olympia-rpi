@@ -82,7 +82,9 @@ exec(jokesL)
 cd("code")
 
 while True:
+    cd("hotwords")
     activationWord() #will wait until it hears the activation word, and then continues on to the next line
+    cd("code")
     choice=voiceInput() #waiting for a command to be spoken - once a command is spoken, the input will be converted into text
     whatToRun=determine(choice) #determines what the user meant with the command - e.g. did they mean to play music or do math?
     if whatToRun=="tellMeMore" and wikipediaFlag!=True:
