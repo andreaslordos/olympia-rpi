@@ -14,7 +14,7 @@ def determine(userinput):
         passed back to main.py
     '''
     def conflictResolution(conflicts):
-        conflict_dict={"alarm":3,"wolfram":2,"weather":4,"music":5,"help":1,"news":3,"bohemian":4,"drumpf":4,"alarm":3,"wiki":3,"dict":4,"xkcd":4,"math":5,"tellMeMore":2,"chance":3}
+        conflict_dict={"alarm":3,"wolfram":2,"weather":4,"music":5,"help":1,"news":3,"bohemian":4,"alarm":3,"wiki":3,"dict":4,"xkcd":4,"math":5,"tellMeMore":2,"chance":3}
         winner=conflicts[0]
         conflicts.remove(winner)
         for task in conflicts:
@@ -48,11 +48,6 @@ def determine(userinput):
         def aboutBohemian(userinput):
             if userinput.lower()=="i see a little silhouetto of a man" or userinput.lower()=="thunderbolt and lightning very very frightening":
                 return "bohemian"
-            return
-
-        def aboutDrumpf(userinput):
-            if userinput.lower()=="who is donald trump" or userinput.lower()=="what is donald trump":
-                return "drumpf"
             return
 
         def aboutAlarm(userinput):
@@ -116,7 +111,7 @@ def determine(userinput):
                 if word in u:
                     return "alarm"
             return
-        modules=["Weather","Music","News","Help","Bohemian","Drumpf","Alarm","Wikipedia","Dictionary","XKCD","Math","TellMeMore","Questions","Dice","Alarm"]
+        modules=["Weather","Music","News","Help","Bohemian","Alarm","Wikipedia","Dictionary","XKCD","Math","TellMeMore","Questions","Dice","Alarm"]
         modulesToRun=[]
         for module in modules:
             eval("modulesToRun.append(about"+module+"(userinput))")
