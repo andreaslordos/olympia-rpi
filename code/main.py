@@ -37,7 +37,7 @@ def voiceInput():
 
 def thread_second():
     cd("code")
-    call(["python","alarmclock.py"])
+    call(["python3","alarmclock.py"])
     cd("resources")
 
 def runAlarm():
