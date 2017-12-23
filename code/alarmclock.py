@@ -9,6 +9,7 @@ from time import sleep
 from os import chdir
 import sys
 from changeDir import changeDirectory as cd
+from os import system
 
 cd("resources")
 def alarmclock():
@@ -39,10 +40,9 @@ def alarmclock():
                 soonest=(alarmTime-now).total_seconds()
         print(soonest)
         sleep(soonest)
-        from play_music import playMusic
-        p=playMusic("country road",True)
-        input()
-        p.stop()
+        cd("resources")
+        system("mplayer timer.mp3")
+        print("Timer complete.")
         try:
             contents.remove(str(alarmTime))
             writeToFile='#'.join(contents)+"#"
