@@ -9,7 +9,6 @@ from changeDir import changeDirectory as cd
 cd("code")
 import speech_recognition as sr
 import vlc
-import datetime
 from random import randint
 from time import sleep
 from determiner import determine
@@ -18,9 +17,6 @@ from gtts import gTTS as tts
 import threading
 from subprocess import call
 from output_voice import voiceOutput
-
-now=datetime.datetime.now()
-year=now.year
 
 def voiceInput():
     cd("resources")
