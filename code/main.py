@@ -62,6 +62,7 @@ name,location=setMeUp(False,False)
 
 cd("code")
 runAlarm()
+cd("resources")
 voiceOutput(["Hello, "+name])
 print("To activate me, say 'Olympia'")
 print("Things I can do: play music, tell you the weather, give you the news, answer a question, do some math, define words and tell you a joke")
