@@ -14,13 +14,11 @@ def Chance(userinput):
         userinput=userinput.split()
         for word in userinput:
             if word[0].lower()=="d":
-                for x in range(100001):
-                    if "d"+str(x) in word.lower():
-                        dice=userinput[-1]
-                        dice=dice[1:]
-                        number=str(randint(1,int(dice)))
-                        fullstr="You rolled a "+number
-                        return fullstr
+                try:
+                    roll=str(randint(1,int(word[1:])))
+                    return "You rolled a "+roll
+                except:
+                    pass
         return "Error"
         
         
