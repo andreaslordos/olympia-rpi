@@ -87,6 +87,12 @@ def activationWord():
     cd("code")
     return
 
+cd("resources")
+jokesF=open("jokes.txt","r")
+jokesL=jokesF.read()
+exec(jokesL)
+cd("code")
+
 while True:
     activationWord()
     if True==True:
