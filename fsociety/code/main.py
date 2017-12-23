@@ -61,13 +61,6 @@ def runAlarm():
     processThread.start()
     return
 
-def checkForBirthday(dateofbirth):
-    dateofbirth=dateofbirth[5:]
-    datetoday=str(now)
-    if datetoday[5:10]==dateofbirth:
-        return True
-    return False
-
 def brackets_remove(string):
     returnString=""
     foundBracket=False
@@ -81,12 +74,8 @@ def brackets_remove(string):
             foundBracket=False
     return returnString
 
-name,dateofbirth,location=setMeUp(False,False,False)
+name,location=setMeUp(False,False)
 
-isBirthday=checkForBirthday(dateofbirth)
-
-if isBirthday==True:
-    voiceOutput(["Happy birthday "+name, "I hope you have a wonderful day!"])
 runAlarm()
 voiceOutput(["Hello, "+name])
 print("To activate me, say 'Olympia'")
@@ -137,8 +126,6 @@ while True:
             forecastedWeather=wf.Forecast(choice)
             voiceOutput([forecastedWeather])
             askedForWeather=False
-        elif whatToRun=="drumpf":
-            voiceOutput(["A demagogue"])
         elif whatToRun=="wiki":
             import wiki_search as ws
             wiki_tuple=ws.wikipedia(choice,1)
@@ -232,7 +219,7 @@ while True:
             elif "news" in helpChoice:
                 voiceOutput(["To get the news, simply say", "Can you get me the news?", "Alternatively, you could say ","What are the headlines today?","Furthermore, you may specify which newspaper you would like to hear from - the current ones supported are: ","CNN, Fox News, The Economist, The Huffington Post, The New York Times and the Washington Post."])
             elif "settings" in helpChoice:
-                voiceOutput(["You can change your settings here.","Currently, you can change your name, location and birthday","Which of these would you like to change?"])
+                voiceOutput(["You can change your settings here.","Currently, you can change your name, location","Which of these would you like to change?"])
                 settingToChange=voiceInput()
                 settingToChange=settingToChange.lower()
                 if "cancel" in settingToChange:
@@ -243,14 +230,10 @@ while True:
                         cd("resources")
                         didntGetThat=False
                         confirmedName=True
-                        confirmedBirthday=True
                         confirmedLocation=True
                         if "name" in settingToChange:
                             os.remove("name.txt")
                             confirmedName=False
-                        elif "birthday" in settingToChange or "birth" in settingToChange:
-                            os.remove("birthday.txt")
-                            confirmedBirthday=False
                         elif "location" in settingToChange or "city" in settingToChange:
                             os.remove("location.txt")
                             confirmedLocation=False
@@ -259,5 +242,5 @@ while True:
                             settingToChange=voiceInput()
                             didntGetThat=True
                     cd("code")
-                    name,dateofbirth,location=setMeUp(confirmedName,confirmedBirthday,confirmedLocation)
+                    name,location=setMeUp(confirmedName,confirmedLocation)
                     voiceOutput(["Change confirmed."])
