@@ -44,21 +44,14 @@ def playMusic(userinput, choiceIsPure):
         return p
 
     def getCorrectLink(urls):
-        pafy.set_api_key('AIzaSyDvf2A3-ZDoQciNhgxdbEO2NIaQyCYY33A')
+        pafy.set_api_key(INSERT KEY HERE)
         for url in urls:
             if len(url)==43 and url[:32]=='https://www.youtube.com/watch?v=':
                 song=pafy.new(url[32:])
                 return url
-                '''
-                print(song.keywords)
-                if 'Music' in song.keywords:
-                    print("Music in keywords!")
-                    return url
-                '''
-                #keywords doesn't work anymore, wtf????
 
     #Main Program
-    pafy.set_api_key('AIzaSyDvf2A3-ZDoQciNhgxdbEO2NIaQyCYY33A')
+    pafy.set_api_key(INSERT KEY HERE)
     if choiceIsPure==False:
         triggerword=["play","on"]
         if "that goes like" in userinput.lower() or "that goes" in userinput.lower() or "lyrics" in userinput.lower():
