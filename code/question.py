@@ -8,16 +8,12 @@ def answer(userinput):
         contents=contents.decode('utf-8')
         return contents
     
-    def cleanUp(answer):
-        for x in range(len(answer)):
-            if answer[x]=="\n":
-                answer=answer[0:x]+" "+answer[x+1:]
-                return answer
-        return answer
-    
     try:
-        app_id= "X6H6Y3-TW3AY7WKG8"
+        app_id= None #need to insert app id
         answer=getSpoken(app_id,userinput.lower())
         return answer
     except:
-        return "Sorry, I don't know."
+        if app_id==None:
+            return "For this to work, you must input an app_id in the python file question"
+        else:
+            return "Sorry, I don't know."
