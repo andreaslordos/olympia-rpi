@@ -29,16 +29,9 @@ python_vlc == 1.1.2
 # play_music.py: 23
 requests == 2.17.3
 
-# main.py: 24
-# output_voice.py: 2
-tinytag == 0.18.0
-
 # main.py: 164
 # wiki_search.py: 12
 wikipedia == 1.4.0
-
-# xkcd_viewer.py: 3
-xkcd == 2.4.2
 
 # weather_forecast.py: 3
 yahooweather == 0.8

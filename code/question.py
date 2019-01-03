@@ -16,7 +16,7 @@ def answer(userinput):
         return answer
     
     try:
-        app_id= GET_YOUR_OWN_APP_ID_AT_https://developer.wolframalpha.com
+        app_id= "X6H6Y3-TW3AY7WKG8"
         answer=getSpoken(app_id,userinput.lower())
         return answer
     except:
