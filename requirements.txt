@@ -27,7 +27,7 @@ pafy == 0.5.3.1
 python_vlc == 1.1.2
 
 # play_music.py: 23
-requests == 2.17.3
+requests == 2.20.0
 
 # main.py: 164
 # wiki_search.py: 12
